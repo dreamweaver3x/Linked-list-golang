@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"list/pkg/linked-list"
+	"list/pkg/linked_list"
 )
 
 func main() {

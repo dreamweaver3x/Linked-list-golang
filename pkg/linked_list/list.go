@@ -32,7 +32,7 @@ func (p *LinkedList) Add(x int) {
 
 }
 
-func (p *LinkedList) Remove(x int) {
+func (p *LinkedList) Remove(x int) error {
 	f := p.head
 	prevF := p.head
 	for f.data != x && f.next != nil {
@@ -45,10 +45,12 @@ func (p *LinkedList) Remove(x int) {
 		if x == f.data {
 			prevF.next = f.next
 		} else {
-			fmt.Println("no value in the List")
+			return fmt.Errorf("no values to remove")
 		}
 	}
+	return nil
 }
+
 func (p *LinkedList) String() string {
 	point := p.head
 	x := make([]int, 0)
