@@ -3,7 +3,7 @@ package list
 import "fmt"
 
 type Node struct {
-	data interface{}
+	data int
 	next *Node
 }
 
@@ -13,7 +13,7 @@ type Linkedlist struct {
 }
 
 
-func NewList (x interface{}) *Linkedlist{
+func NewList (x int) *Linkedlist{
 	structList := Node{
 		data: x,
 	}
@@ -24,32 +24,36 @@ func NewList (x interface{}) *Linkedlist{
 	return  &structPointers
 }
 
-func (point *Linkedlist) Add (x interface{}){
+func (p *Linkedlist) Add (x int){
 	structList := Node {
 		data: x,
 	}
-	point.tail.next = &structList
-	point.tail = &structList
+	p.tail.next = &structList
+	p.tail = &structList
 
 }
 
 
-func (needHead *Linkedlist) Remove (x interface{}){
-	p := needHead.head
-	prevP := needHead.head
-	for p.data != x && p.next != nil {
-		prevP = p
-		p = p.next
+func (p *Linkedlist) Remove (x int){
+	f := p.head
+	prevF := p.head
+	for f.data != x && f.next != nil {
+		prevF = f
+		f = f.next
 	}
-	if x == p.data {
-		prevP.next = p.next
+	if p.head == f {
+		p.head = p.tail
 	} else {
+		if x == f.data{
+		prevF.next = f.next
+	} else{
 		fmt.Println("no value in the List")
 	}
+	}
 }
 
-func (list Linkedlist) Write(){
-	point := list.head
+func (p Linkedlist) Write(){
+	point := p.head
 	for point != nil {
 		fmt.Println(point.data)
 		point = point.next

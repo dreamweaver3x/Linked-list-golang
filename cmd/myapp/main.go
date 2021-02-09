@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"list/internal/linkedlist"
 )
 
@@ -9,11 +8,9 @@ import (
 func main() {
 	pointer := list.NewList(1)
 	pointer.Add(2)
+	pointer.Remove(1)
+	pointer.Write()
 	pointer.Add(3)
 	pointer.Add(4)
-	pointer.Write()
-	fmt.Println()
-	fmt.Println()
-	pointer.Remove(3)
 	pointer.Write()
 }
