@@ -5,7 +5,6 @@ import (
 	"list/pkg/linked-list"
 )
 
-
 func main() {
 	pointer := list.NewList(1)
 	pointer.Add(2)
