@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"list/internal/linkedlist"
+	"list/pkg/linked-list"
 )
 
 
