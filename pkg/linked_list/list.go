@@ -29,7 +29,6 @@ func (p *LinkedList) Add(x int) {
 	}
 	p.tail.next = &structList
 	p.tail = &structList
-
 }
 
 func (p *LinkedList) Remove(x int) error {
