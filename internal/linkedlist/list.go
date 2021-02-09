@@ -51,14 +51,14 @@ func (p *LinkedList) Remove (x int){
 	}
 	}
 }
-
-func (p *LinkedList) Write(){
+func (p *LinkedList) String() string {
 	point := p.head
 	x:= make([]int, 0)
 	for point != nil {
 		x = append(x, point.data)
 		point = point.next
 	}
-	fmt.Println(x)
+	return fmt.Sprint(x)
 }
+
 
