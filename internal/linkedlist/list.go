@@ -2,30 +2,30 @@ package list
 
 import "fmt"
 
-type Node struct {
+type node struct {
 	data int
-	next *Node
+	next *node
 }
 
-type Linkedlist struct {
-	head *Node
-	tail *Node
+type LinkedList struct {
+	head *node
+	tail *node
 }
 
 
-func NewList (x int) *Linkedlist{
-	structList := Node{
+func NewList (x int) *LinkedList{
+	structList := node{
 		data: x,
 	}
-	structPointers := Linkedlist{
+	structPointers := LinkedList{
 		head: &structList,
 		tail: &structList,
 	}
 	return  &structPointers
 }
 
-func (p *Linkedlist) Add (x int){
-	structList := Node {
+func (p *LinkedList) Add (x int){
+	structList := node {
 		data: x,
 	}
 	p.tail.next = &structList
@@ -34,7 +34,7 @@ func (p *Linkedlist) Add (x int){
 }
 
 
-func (p *Linkedlist) Remove (x int){
+func (p *LinkedList) Remove (x int){
 	f := p.head
 	prevF := p.head
 	for f.data != x && f.next != nil {
@@ -52,11 +52,13 @@ func (p *Linkedlist) Remove (x int){
 	}
 }
 
-func (p Linkedlist) Write(){
+func (p *LinkedList) Write(){
 	point := p.head
+	x:= make([]int, 0)
 	for point != nil {
-		fmt.Println(point.data)
+		x = append(x, point.data)
 		point = point.next
 	}
+	fmt.Println(x)
 }
 
