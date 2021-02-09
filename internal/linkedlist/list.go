@@ -24,7 +24,7 @@ func NewList (x interface{}) *Linkedlist{
 	return  &structPointers
 }
 
-func AddList (x interface{}, point *Linkedlist){
+func (point *Linkedlist) Add (x interface{}){
 	structList := Node {
 		data: x,
 	}
@@ -34,7 +34,7 @@ func AddList (x interface{}, point *Linkedlist){
 }
 
 
-func RemoveFromList (x interface{}, needHead *Linkedlist){
+func (needHead *Linkedlist) Remove (x interface{}){
 	p := needHead.head
 	prevP := needHead.head
 	for p.data != x && p.next != nil {
@@ -48,7 +48,7 @@ func RemoveFromList (x interface{}, needHead *Linkedlist){
 	}
 }
 
-func WriteList (list Linkedlist){
+func (list Linkedlist) Write(){
 	point := list.head
 	for point != nil {
 		fmt.Println(point.data)
